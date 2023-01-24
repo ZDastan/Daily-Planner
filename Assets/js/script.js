@@ -15,13 +15,13 @@ var today = dayjs();
 $('#currentDay').text(today.format('dddd, MMMM D YYYY'));
 
 //Time set to consol
-var localTime = moment().format("HH:mm:ss");
-console.log(localTime)
+//var localTime = moment().format("HH:mm:ss");
+console.log(moment());
 
 $ (document).ready(function () {
 
 
-  $(".button").on("click", function (event) {
+  $(".hour").on("click", function (event) {
     event.preventDefault();
 
     var userInfo = $(this).prev().val();
@@ -35,6 +35,24 @@ $ (document).ready(function () {
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
   //
+  $(".text").each(function () {
+    var selectedInput = parseInt($(this).attr("id"));
+
+    if (selectedInput > localTime) {
+        $(this).addClass("future")
+
+    } else if (selectedInput == localTime) {
+
+        $(this).addClass("present")
+
+    }
+    else {
+        $(this).addClass("past")
+
+    };
+
+    $("#" + selectedInput).val(localStorage.getItem(selectedInput))
+});
   // TODO: Add code to apply the past, present, or future class to each time
   // block by comparing the id to the current hour. HINTS: How can the id
   // attribute of each time-block be used to conditionally add or remove the
