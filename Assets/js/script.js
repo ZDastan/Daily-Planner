@@ -2,11 +2,32 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 
-//Present time on header
+
+
+
+
+ 
+
+
+
+//Present current date on header
 var today = dayjs();
 $('#currentDay').text(today.format('dddd, MMMM D YYYY'));
 
-$(function () {
+//Time set to consol
+var localTime = moment().format("HH:mm:ss");
+console.log(localTime)
+
+$ (document).ready(function () {
+
+
+  $(".button").on("click", function (event) {
+    event.preventDefault();
+
+    var userInfo = $(this).prev().val();
+    console.log(userInfo)
+    localStorage.setItem($(this).prev().attr("id"), userInfo)
+  })
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
