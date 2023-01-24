@@ -15,20 +15,20 @@ var today = dayjs();
 $('#currentDay').text(today.format('dddd, MMMM D YYYY'));
 
 //Time set to consol
-//var localTime = moment().format("HH:mm:ss");
 console.log(moment());
 
+//Add a listener for click events on the save button.
 $ (document).ready(function () {
 
 
-  $(".hour").on("click", function (event) {
+  $("hour").on("click", function (event) {
     event.preventDefault();
 
     var userInfo = $(this).prev().val();
     console.log(userInfo)
     localStorage.setItem($(this).prev().attr("id"), userInfo)
   })
-  // TODO: Add a listener for click events on the save button. This code should
+  // TODO: //Add a listener for click events on the save button.// This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
   // function? How can DOM traversal be used to get the "hour-x" id of the
@@ -62,6 +62,10 @@ $ (document).ready(function () {
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
+  $(".btn saveBtn col-2 col-md-1").click(function(){
+    var text_event = $("#text").val();
+    localStorage.setItem("text_event" , text)
+  })
   //
   // TODO: Add code to display the current date in the header of the page.
 });
