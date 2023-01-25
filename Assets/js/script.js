@@ -52,12 +52,13 @@ $ (document).ready(function () {
 
    //localStorage.getItem("text-"+i)
   //}
-  var localTime = dayjs().format('HH:MM')
+  var localTime = dayjs().hour()
+  //.format('HH:MM')
   
 console.log(localTime)
 
   $(".time-block").each(function () {
-    var selectedInput = parseInt($(this).attr("id"));
+    var selectedInput = parseInt($(this).attr("id").split("-")[1]);
     
 
     if (selectedInput > localTime) {
