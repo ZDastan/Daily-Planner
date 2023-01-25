@@ -53,7 +53,8 @@ $ (document).ready(function () {
    //localStorage.getItem("text-"+i)
   //}
   var localTime = dayjs().hour()
-  //.format('HH:MM')
+  //var localTime = 11
+ 
   
 console.log(localTime)
 
