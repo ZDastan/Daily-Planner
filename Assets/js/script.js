@@ -58,6 +58,7 @@ console.log(localTime)
 
   $(".time-block").each(function () {
     var selectedInput = parseInt($(this).attr("id").split("hour")[1]);
+    for(var i = 9;i<=17;i++){
 
     if (selectedInput > localTime) {
         $(this).addClass("future");
@@ -79,6 +80,7 @@ console.log(localTime)
       
 
     $("#" + selectedInput).val(localStorage.getItem(selectedInput))
+  }
 });
   // TODO: Add code to display the current date in the header of the page.
 });
