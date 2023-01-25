@@ -57,13 +57,13 @@ $ (document).ready(function () {
 console.log(localTime)
 
   $(".time-block").each(function () {
-    var selectedInput = parseInt($(this).attr("id").split("hour")[1]);
-    for(var i = 9;i<=17;i++){
+    var selectedInput = parseInt($(this).attr("id"));
+    
 
     if (selectedInput > localTime) {
         $(this).addClass("future");
-        $(this).removeClass('past');
-        $(this).removeClass('present');
+       $(this).removeClass('past');
+       $(this).removeClass('present');
 
     } else if (selectedInput == localTime) {
 
@@ -72,15 +72,18 @@ console.log(localTime)
         $(this).removeClass('future');
 
     }
-    else (selectedInput < localTime) ;
-        $(this).addClass("past");
-        $(this).removeClass('present');
-        $(this).removeClass('future');
+    else {(selectedInput < localTime)
 
+      $(this).addClass("past");
+      $(this).removeClass('present');
+      $(this).removeClass('future');
+    
+       
+    } ;
       
 
     $("#" + selectedInput).val(localStorage.getItem(selectedInput))
-  }
+  
 });
   // TODO: Add code to display the current date in the header of the page.
 });
