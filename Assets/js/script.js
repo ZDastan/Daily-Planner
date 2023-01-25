@@ -16,7 +16,7 @@ $('#currentDay').text(dayjs().format('dddd, MMMM Do'));
 
 //Time set to consol
 //$('#currentDay').text(dayjs(dayjs(),'dddd, MMMM Do'));
-console.log(moment());
+
 
 //Add a listener for click events on the save button.
 $ (document).ready(function () {
@@ -52,21 +52,31 @@ $ (document).ready(function () {
 
    //localStorage.getItem("text-"+i)
   //}
-  $(".hour").each(function () {
-    var selectedInput = parseInt($(this).attr("id"));
+  var localTime = dayjs().format('HH:MM')
+  
+console.log(localTime)
+
+  $(".time-block").each(function () {
+    var selectedInput = parseInt($(this).attr("id").split("hour")[1]);
 
     if (selectedInput > localTime) {
-        $(this).addClass("future")
+        $(this).addClass("future");
+        $(this).removeClass('past');
+        $(this).removeClass('present');
 
     } else if (selectedInput == localTime) {
 
-        $(this).addClass("present")
+        $(this).addClass("present");
+        $(this).removeClass('past');
+        $(this).removeClass('future');
 
     }
-    else {
-        $(this).addClass("past")
+    else (selectedInput < localTime) ;
+        $(this).addClass("past");
+        $(this).removeClass('present');
+        $(this).removeClass('future');
 
-    };
+      
 
     $("#" + selectedInput).val(localStorage.getItem(selectedInput))
 });
