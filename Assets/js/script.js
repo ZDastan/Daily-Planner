@@ -1,22 +1,9 @@
-//Present current date on header
-
-
-//Time set to consol
-//$('#currentDay').text(dayjs(dayjs(),'dddd, MMMM Do'));
-
-
-//Add a listener for click events on the save button.
 $ (document).ready(function () {
 
 
   
-  // TODO: //Add a listener for click events on the save button.// This code should
-  // use the id in the containing time-block as a key to save the user input in
-  // local storage. HINT: What does `this` reference in the click listener
-  // function? How can DOM traversal be used to get the "hour-x" id of the
-  // time-block containing the button that was clicked? How might the id be
-  // useful when saving the description in local storage?
-  //
+  //Add a listener for click events on the save button.
+  
   $(".saveBtn").click(function(){
     var textArea = $(this).siblings(".description")
     var text_event =textArea.val();
@@ -24,22 +11,9 @@ $ (document).ready(function () {
     console.log(text_id,text_event);
     localStorage.setItem(text_id , text_event)
   })
-  // TODO: Add code to apply the past, present, or future class to each time
-  // block by comparing the id to the current hour. HINTS: How can the id
-  // attribute of each time-block be used to conditionally add or remove the
-  // past, present, and future classes? How can Day.js be used to get the
-  // current hour in 24-hour time?
-  //
-  // TODO: Add code to get any user input that was saved in localStorage and set
-  // the values of the corresponding textarea elements. HINT: How can the id
-  // attribute of each time-block be used to do this?
-
- 
-  for(var i = 9;i<=17;i++){
-
-   localStorage.getItem("text-"+i)
-  }
-
+  
+//Add code to apply the past, present, or future class to each time.
+//time in consol.log
   var localTime = dayjs().hour()
   //var localTime = 11
  
@@ -75,9 +49,26 @@ console.log(localTime)
     $("#" + selectedInput).val(localStorage.getItem(selectedInput))
   
 });
-  // TODO: Add code to display the current date in the header of the page.
+
+
+ //Add code to get any user input that was saved in localStorage.
+
+
+  $("#text-9").val(localStorage.getItem("text-9"));
+  $("#text-10").val(localStorage.getItem("text-10"));
+  $("#text-11").val(localStorage.getItem("text-11"));
+  $("#text-12").val(localStorage.getItem("text-12"));
+  $("#text-13").val(localStorage.getItem("text-13"));
+  $("#text-14").val(localStorage.getItem("text-14"));
+  $("#text-15").val(localStorage.getItem("text-15"));
+  $("#text-16").val(localStorage.getItem("text-16"));
+  $("#text-17").val(localStorage.getItem("text-17"));
+ 
+
+
+  //Present current date on header
   var today = dayjs();
 $('#currentDay').text(today.format('dddd, MMMM Do'));
-setInterval(date(),1000);
+
 });
 
