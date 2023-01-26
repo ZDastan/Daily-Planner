@@ -1,6 +1,5 @@
 //Present current date on header
-var today = dayjs();
-$('#currentDay').text(dayjs().format('dddd, MMMM Do'));
+
 
 //Time set to consol
 //$('#currentDay').text(dayjs(dayjs(),'dddd, MMMM Do'));
@@ -36,10 +35,11 @@ $ (document).ready(function () {
   // attribute of each time-block be used to do this?
 
  
-  //for(var i = 9;i<=17;i++){
+  for(var i = 9;i<=17;i++){
 
-   //localStorage.getItem("text-"+i)
-  //}
+   localStorage.getItem("text-"+i)
+  }
+
   var localTime = dayjs().hour()
   //var localTime = 11
  
@@ -76,5 +76,8 @@ console.log(localTime)
   
 });
   // TODO: Add code to display the current date in the header of the page.
+  var today = dayjs();
+$('#currentDay').text(today.format('dddd, MMMM Do'));
+setInterval(date(),1000);
 });
 
